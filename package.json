@@ -1,0 +1,64 @@
+{
+  "name": "nuxt-quasar-vite",
+  "version": "1.0.13",
+  "description": "Quasar Framework UI for Nuxt",
+  "license": "MIT",
+  "type": "module",
+  "exports": {
+    ".": {
+      "import": "./dist/module.mjs",
+      "require": "./dist/module.cjs"
+    }
+  },
+  "main": "./dist/module.cjs",
+  "types": "./dist/types.d.ts",
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "prepack": "nuxt-module-build build",
+    "dev": "nuxi dev playground",
+    "dev:build": "nuxi build playground",
+    "dev:prepare": "nuxt-module-build build --stub && nuxt-module-build prepare && nuxi prepare playground",
+    "release": "npm run lint && npm run test && npm run prepack && changelogen --release && npm publish && git push --follow-tags",
+    "lint": "eslint .",
+    "test": "vitest run",
+    "test:watch": "vitest watch"
+  },
+  "dependencies": {
+    "@nuxt/kit": "^3.9.0"
+  },
+  "devDependencies": {
+    "@types/node": "^18",
+    "@nuxt/devtools": "latest",
+    "@nuxt/eslint-config": "^0.2.0",
+    "@nuxt/module-builder": "^0.5.4",
+    "@nuxt/schema": "^3.9.0",
+    "@nuxt/test-utils": "^3.9.0",
+    "changelogen": "^0.5.5",
+    "eslint": "^8.56.0",
+    "nuxt": "^3.9.0",
+    "vitest": "^0.33.0"
+  },
+  "author": {
+    "email": "romeo@mendezfuentes.net",
+    "name": "Romeo Mendez Fuentes",
+    "url": "https://romeo.mendezfuentes.net"
+  },
+  "homepage": "https://github.com/memotux/nuxt-quasar",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/memotux/nuxt-quasar.git"
+  },
+  "keywords": [
+    "nuxt",
+    "quasar",
+    "module",
+    "vite",
+    "ui"
+  ],
+  "peerDependencies": {
+    "quasar": "^2.7.1",
+    "sass": "^1.69.5"
+  }
+}
